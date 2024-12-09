@@ -1,0 +1,19 @@
+{
+  "name": "new-relic-coding-tests",
+  "version": "1.0.0",
+  "description": "Basic setup for applicants to show off their front end skills.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm-run-all --parallel web-server tailwind",
+    "web-server": "http-server .",
+    "tailwind": "npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.4.3"
+  }
+}

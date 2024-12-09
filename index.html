@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Relic Coding Test</title>
+    <link href="src/css/output.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="src/js/index.js" type="text/javascript"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+  </head>
+
+  <body class="font-sans text-charcoal overflow-x-hidden">
+    <!-- Header Section starts here-->
+    <header class="bg-white shadow-md">
+      <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <!-- Logo -->
+        <a href="#" class="flex text-2xl font-bold text-blue items-center">
+          <svg width="65" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_5075_22003)">
+            <path d="M22.3821 11.0773V20.9227L13.8572 25.8464V32L27.7144 24.0005V7.9995L22.3821 11.0773Z" fill="#00AC69"></path>
+            <path d="M13.8572 6.15563L22.3821 11.0773L27.7144 7.9995L13.8572 0L0 7.9995L5.33031 11.0773L13.8572 6.15563Z" fill="#1CE783"></path>
+            <path d="M8.52689 19.0788V28.9242L13.8572 32V16.001L0 7.9995V14.1551L8.52689 19.0788Z" fill=""></path>
+            <path d="M46.7349 7.97736C43.7517 7.97736 42.3386 9.86149 42.3386 9.86149H42.1816L41.8696 8.29138H38.2563V24.3065H42.1816V15.0469C42.1816 13.0057 43.5907 11.5926 45.6359 11.5926C47.681 11.5926 49.0901 13.0017 49.0901 15.0469V24.3065H53.0154V14.7288C53.0154 10.6465 50.3462 7.97736 46.7349 7.97736Z" fill="white"></path>
+            <path d="M89.0674 18.8111H88.842L86.1728 8.29138H82.1791L79.5099 18.8111H79.2864L76.6152 8.29138H72.533L76.6152 24.3065H81.396L84.0632 13.9438H84.2886L86.9578 24.3065H91.7366L95.8189 8.29138H91.7366L89.0674 18.8111Z" fill="white"></path>
+            <path d="M107.838 9.70448H107.681L107.367 8.29541H104.07V24.3085H107.995V15.0489C107.995 13.0077 108.937 12.0657 110.979 12.0657H112.992V8.2934H110.656C110.11 8.29456 109.57 8.42261 109.081 8.66747C108.592 8.91232 108.167 9.2673 107.838 9.70448V9.70448Z" fill="white"></path>
+            <path d="M121.677 7.97736C116.969 7.97736 113.515 11.4316 113.515 16.2989C113.515 21.1663 116.774 24.6205 121.677 24.6205C125.649 24.6205 128.04 22.2834 129.037 20.5644L125.433 19.2801C125.077 19.9323 123.64 21.1864 121.677 21.1864C119.388 21.1864 117.754 19.7532 117.44 17.5631H129.371C129.481 17.0471 129.534 16.5205 129.528 15.993C129.528 11.4316 126.073 7.97736 121.677 7.97736ZM117.44 14.8858C117.911 12.8447 119.324 11.2746 121.677 11.2746C123.877 11.2746 125.288 12.8447 125.602 14.8858H117.44Z" fill="white"></path>
+            <path d="M63.6899 7.97736C58.9796 7.97736 55.5254 11.4316 55.5254 16.2989C55.5254 21.1663 58.7783 24.6205 63.6899 24.6205C67.6615 24.6205 70.0509 22.2834 71.0473 20.5644L67.4441 19.2801C67.0878 19.9323 65.6526 21.1864 63.6899 21.1864C61.4012 21.1864 59.7647 19.7532 59.4507 17.5631H71.3835C71.4938 17.0471 71.5465 16.5205 71.5405 15.993C71.5405 11.4316 68.0863 7.97736 63.6899 7.97736ZM59.4507 14.8858C59.9217 12.8447 61.3348 11.2746 63.6899 11.2746C65.8881 11.2746 67.3012 12.8447 67.6152 14.8858H59.4507Z" fill="white"></path>
+            <path d="M143.25 1.96867H139.325V5.89394H143.25V1.96867Z" fill="white"></path>
+            <path d="M154.082 21.0092C151.727 21.0092 149.843 19.1251 149.843 16.2989C149.843 13.4727 151.727 11.5886 154.082 11.5886C156.437 11.5886 157.379 13.1587 157.693 14.1008L161.248 12.8366C160.386 10.6002 158.273 7.97736 154.082 7.97736C149.371 7.97736 145.917 11.4316 145.917 16.2989C145.917 21.1663 149.371 24.6205 154.082 24.6205C158.309 24.6205 160.423 21.9553 161.268 19.6123L157.693 18.3401C157.379 19.4391 156.437 21.0092 154.082 21.0092Z" fill="white"></path>
+            <path d="M129.963 5.45713H132.191V24.3065H136.116V1.96867H129.963V5.45713Z" fill="white"></path>
+            <path d="M143.25 8.29138H139.325V24.3065H143.25V8.29138Z" fill="white"></path>
+            <path d="M163.37 21.2347C163.069 21.2303 162.775 21.3153 162.523 21.479C162.271 21.6426 162.073 21.8775 161.955 22.1537C161.837 22.4298 161.804 22.7349 161.86 23.03C161.916 23.325 162.058 23.5968 162.269 23.8107C162.48 24.0247 162.75 24.1711 163.044 24.2313C163.338 24.2915 163.644 24.2628 163.922 24.149C164.199 24.0351 164.437 23.8411 164.605 23.5917C164.772 23.3423 164.861 23.0488 164.861 22.7484C164.868 22.5498 164.834 22.3518 164.762 22.1666C164.689 21.9815 164.58 21.8129 164.44 21.6713C164.301 21.5297 164.134 21.418 163.95 21.3429C163.766 21.2679 163.568 21.231 163.37 21.2347ZM163.37 24.0307C163.115 24.0351 162.865 23.9636 162.651 23.8254C162.438 23.6872 162.27 23.4886 162.169 23.2547C162.069 23.0208 162.04 22.7623 162.087 22.5121C162.134 22.262 162.255 22.0314 162.433 21.8499C162.611 21.6683 162.84 21.544 163.089 21.4927C163.338 21.4414 163.597 21.4655 163.833 21.5618C164.069 21.6582 164.27 21.8225 164.412 22.0338C164.554 22.2451 164.63 22.4939 164.63 22.7484C164.636 22.9161 164.607 23.0833 164.546 23.2395C164.485 23.3958 164.392 23.538 164.274 23.6573C164.156 23.7766 164.015 23.8706 163.86 23.9334C163.704 23.9962 163.537 24.0266 163.37 24.0226V24.0307Z" fill="white"></path>
+            <path d="M164.02 22.4686C164.019 22.396 164.004 22.3243 163.975 22.2578C163.946 22.1913 163.903 22.1315 163.85 22.0821C163.797 22.0327 163.734 21.9947 163.666 21.9705C163.597 21.9462 163.525 21.9363 163.452 21.9412H162.78V23.5194H163.011V22.9719H163.223L163.768 23.5194H164.056L163.51 22.9719C163.645 22.9719 163.773 22.9191 163.868 22.8249C163.964 22.7306 164.018 22.6027 164.02 22.4686V22.4686ZM163.013 22.7404V22.1727H163.452C163.494 22.1676 163.537 22.1715 163.577 22.184C163.618 22.1965 163.655 22.2173 163.687 22.2453C163.719 22.2732 163.745 22.3075 163.763 22.346C163.78 22.3845 163.79 22.4262 163.79 22.4686C163.79 22.6357 163.684 22.7404 163.452 22.7404H163.013Z" fill="white"></path>
+            </g>
+            <defs>
+            <clipPath id="clip0_5075_22003">
+            <rect width="164.861" height="32" fill="white"></rect>
+            </clipPath>
+            </defs>
+            </svg>
+            <span class="text-h2 font-bold text-charcoal">New Relic</span>
+        </a>
+
+        <!-- Navigation Menu -->
+        <nav class="hidden lg:flex space-x-8">
+          <a href="#" class="text-body hover:text-teal">Products</a>
+          <a href="#" class="text-body hover:text-teal">Pricing</a>
+          <a href="#" class="text-body hover:text-teal">Solutions</a>
+          <a href="#" class="text-body hover:text-teal">Help Center</a>
+          <a href="#" class="text-body hover:text-teal">About</a>
+        </nav>
+
+        <!-- Right Section: Search, Login, Signup -->
+        <div class="flex items-center space-x-6">
+            <!-- Search Icon -->
+            <button id="search-toggle" class="text-body hover:text-teal">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.93 20.861A6.93 6.93 0 1 0 13.93 7a6.93 6.93 0 0 0 0 13.861Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="m18.782 18.782 3.466 3.465.877.878 1.125 1.125.75.75" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path></svg>
+            </button>
+            
+            <div id="search-box" class="hidden absolute top-16 right-6 bg-white border border-gray-300 rounded-lg shadow-lg p-4 w-72">
+              <input
+                type="text"
+                placeholder="Search..."
+                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+              />
+            </div>
+
+            <!-- Login Button -->
+            <a href="#" class="hidden lg:block text-body hover:text-teal">Login</a>
+
+            <!-- Signup Button -->
+            <a href="#" class="hidden lg:block bg-teal text-white px-4 py-2 rounded hover:bg-darkTeal">
+              Sign Up
+            </a>
+            <button id="menu-toggle" class="lg:hidden flex items-center text-gray-400 focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Icon -->
+        
+      </div>
+      <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-md">
+        <nav class="space-y-4 p-4">
+          <a href="#" class="block text-body hover:text-teal">Products</a>
+          <a href="#" class="block text-body hover:text-teal">Pricing</a>
+          <a href="#" class="block text-body hover:text-teal">Solutions</a>
+          <a href="#" class="block text-body hover:text-teal">Help Center</a>
+          <a href="#" class="block text-body hover:text-teal">About</a>
+          <a href="#" class=" text-body hover:text-teal block">Login</a>
+
+          <!-- Signup Button -->
+          <a href="#" class="bg-teal text-white px-4 py-2 rounded hover:bg-darkTeal inline-block mt-4">
+            Sign Up
+          </a>
+        </nav>
+      </div>
+    </header>
+    <!-- Header section ends here -->
+
+    <!-- Main Content starts here-->
+    <main class="mx-auto">
+
+      <!-- Top highlighted section starts here -->
+      <section id="top-highlighted" class="mt-10 lg:mt-[50px] py-10 lg:py-[50px]" data-aos="zoom-in">
+        <!-- This heading is for desktop and tablet -->
+        <h1 class="px-4 hidden md:block text-h1 text-center lg:px-[300px]">
+          Simple, transparent pricing plans. Only pay for what you use.
+        </h1>
+      
+        <!-- This heading is for mobile -->
+        <h1 class="block md:hidden text-h1 text-center">
+          Simple usage-based pricing
+        </h1>
+      
+        <!-- This paragraph is for desktop and tablet -->
+        <p class="hidden md:block text-body text-center mt-4 text-gray-600">
+          Start for free. No credit card required.
+        </p>
+      
+        <!-- This paragraph is for mobile -->
+        <p class="block md:hidden text-body text-center mt-4 text-gray-600">
+          Start for free. Then pay a predictable per-user price and $0.25 per GB as your needs grow.
+        </p>
+      </section>
+      <!-- Top highlighted sections ends here -->
+
+      <!-- Four card section starts here -->
+      <section class="container mx-auto py-10 lg:py-[50px]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-0 px-6 lg:px-0">
+          <!-- Card 1 -->
+          <div class="border border-gray-300 rounded-lg shadow-lg bg-white shadow-md lg:rounded-br-none lg:rounded-tr-none" data-aos="fade-up" data-aos-delay="200">
+            <!-- Title -->
+            <p class="text-body text-white mb-2 bg-teal p-4 rounded-lg lg:rounded-br-none lg:rounded-tr-none rounded-bl-none rounded-br-none">Free</p>
+            <!-- Subtitle -->
+            <p class="text-md font-medium text-gray-600 py-8 px-6">For individuals just getting started with New Relic or test projects.</p>
+            <p class="text-md font-medium text-gray-600 mb-4 px-6"><span class="font-bold text-h4">$0</span><span>/ Forever</span></p>
+            <!-- List with Tick Marks -->
+            <ul class="space-y-2 mb-4 px-6">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <span>100 GBs / month free</span><br>
+                  <span class="italic text-gray-400">$0.25 / GB beyond</span>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <span>1 free full platform user</span><br>
+                  <span class="italic text-gray-400">Access to all capabilities</span>
+                </div>
+              </li>
+            </ul>
+            <!-- CTA Button -->
+            <div class="flex justify-center">
+              <button class="w-[200px] text-teal border border-teal hover:text-white py-2 rounded hover:border-darkTeal hover:bg-darkTeal">
+                Start for free
+              </button>
+            </div>
+            <!-- Horizontal Line -->
+              <div class="px-6"><hr class="my-8 border-gray-300"></div>
+            
+            <!-- Additional List -->
+            <ul class="space-y-2 p-6">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Standard retention
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Standard retention
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="border border-gray-300 rounded-lg shadow-lg bg-white shadow-md lg:rounded-br-none lg:rounded-tr-none" data-aos="fade-up" data-aos-delay="400">
+            <!-- Title -->
+            <p class="text-body text-white mb-2 bg-blue p-4 rounded-lg lg:rounded-br-none lg:rounded-tr-none rounded-bl-none rounded-br-none lg:rounded-none">Free</p>
+            <!-- Subtitle -->
+            <p class="text-md font-medium text-gray-600 py-8 px-6">For individuals just getting started with New Relic or test projects.</p>
+            <p class="text-md font-medium text-gray-600 mb-4 px-6"><span class="font-bold text-h4">$0</span><span>/ Forever</span></p>
+            <!-- List with Tick Marks -->
+            <ul class="space-y-2 mb-4 px-6">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <span>100 GBs / month free</span><br>
+                  <span class="italic text-gray-400">$0.25 / GB beyond</span>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <span>1 free full platform user</span><br>
+                  <span class="italic text-gray-400">Access to all capabilities</span>
+                </div>
+              </li>
+            </ul>
+            <!-- CTA Button -->
+            <div class="flex justify-center">
+              <button class="w-[200px] text-teal border border-teal hover:text-white py-2 rounded hover:border-darkTeal hover:bg-darkTeal">
+                Start for free
+              </button>
+            </div>
+            <!-- Horizontal Line -->
+              <div class="px-6"><hr class="my-8 border-gray-300"></div>
+            
+            <!-- Additional List -->
+            <ul class="space-y-2 p-6">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Standard retention
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Standard retention
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="border border-gray-300 rounded-lg shadow-lg bg-white shadow-md lg:rounded-none " data-aos="fade-up" data-aos-delay="600">
+            <!-- Title -->
+            <p class="text-body text-white mb-2 bg-orange p-4 rounded-lg lg:rounded-br-none lg:rounded-tr-none rounded-bl-none rounded-br-none lg:rounded-none">Free</p>
+            <!-- Subtitle -->
+            <p class="text-md font-medium text-gray-600 py-8 px-6">For individuals just getting started with New Relic or test projects.</p>
+            <p class="text-md font-medium text-gray-600 mb-4 px-6"><span class="font-bold text-h4">$0</span><span>/ Forever</span></p>
+            <!-- List with Tick Marks -->
+            <ul class="space-y-2 mb-4 px-6">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <span>100 GBs / month free</span><br>
+                  <span class="italic text-gray-400">$0.25 / GB beyond</span>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <span>1 free full platform user</span><br>
+                  <span class="italic text-gray-400">Access to all capabilities</span>
+                </div>
+              </li>
+            </ul>
+            <!-- CTA Button -->
+            <div class="flex justify-center">
+              <button class="w-[200px] text-teal border border-teal hover:text-white py-2 rounded hover:border-darkTeal hover:bg-darkTeal">
+                Start for free
+              </button>
+            </div>
+            <!-- Horizontal Line -->
+              <div class="px-6"><hr class="my-8 border-gray-300"></div>
+            
+            <!-- Additional List -->
+            <ul class="space-y-2 p-6">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Standard retention
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Standard retention
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="border border-gray-300 rounded-lg shadow-lg bg-white shadow-md lg:rounded-bl-none lg:rounded-tl-none" data-aos="fade-up" data-aos-delay="800">
+            <!-- Title -->
+            <p class="text-body text-white mb-2 bg-charcoal p-4 rounded-lg lg:rounded-br-none lg:rounded-tl-none rounded-bl-none rounded-br-none">Free</p>
+            <!-- Subtitle -->
+            <p class="text-md font-medium text-gray-600 py-8 px-6">For individuals just getting started with New Relic or test projects.</p>
+            <p class="text-md font-medium text-gray-600 mb-4 px-6"><span class="font-bold text-h4">$0</span><span>/ Forever</span></p>
+            <!-- List with Tick Marks -->
+            <ul class="space-y-2 mb-4 px-6">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <span>100 GBs / month free</span><br>
+                  <span class="italic text-gray-400">$0.25 / GB beyond</span>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <span>1 free full platform user</span><br>
+                  <span class="italic text-gray-400">Access to all capabilities</span>
+                </div>
+              </li>
+            </ul>
+            <!-- CTA Button -->
+            <div class="flex justify-center">
+              <button class="w-[200px] text-teal border border-teal hover:text-white py-2 rounded hover:border-darkTeal hover:bg-darkTeal">
+                Start for free
+              </button>
+            </div>
+            <!-- Horizontal Line -->
+              <div class="px-6"><hr class="my-8 border-gray-300"></div>
+            
+            <!-- Additional List -->
+            <ul class="space-y-2 p-6">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Standard retention
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-teal-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Standard retention
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </section>
+      <!-- Four cards section ends here -->
+
+      <!-- Clients section starts here -->
+      <section class="py-10 lg:py-[50px]">
+        <!-- Full-width for mobile, container for larger screens -->
+        <div class="container mx-auto">
+          <div class="py-4 px-4">
+            <div class="flex space-x-6 justify-center items-center">
+              <!-- Logo 1 -->
+              <div class="flex-1 flex items-center justify-center" data-aos="zoom-in">
+                <img src="src/images/logos/Homepage_Gray_EpicGames.png" alt="Logo 1" class="max-h-24 max-w-full">
+              </div>
+              <!-- Logo 2 -->
+              <div class="flex-1 flex items-center justify-center" data-aos="zoom-in">
+                <img src="src/images/logos/Homepage_Gray_Atlassian.png" alt="Logo 2" class="max-h-24 max-w-full">
+              </div>
+              <!-- Logo 3 -->
+              <div class="flex-1 flex items-center justify-center" data-aos="zoom-in">
+                <img src="src/images/logos/Homepage_Gray_Doordash.png" alt="Logo 3" class="max-h-24 max-w-full">
+              </div>
+              <!-- Logo 4 -->
+              <div class="flex-1 flex items-center justify-center" data-aos="zoom-in">
+                <img src="src/images/logos/Homepage_Gray_Cloudflare.png" alt="Logo 4" class="max-h-24 max-w-full">
+              </div>
+              <!-- Logo 5 -->
+              <div class="flex-1 flex items-center justify-center" data-aos="zoom-in">
+                <img src="src/images/logos/Homepage_Gray_Github.png" alt="Logo 5" class="max-h-24 max-w-full">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Clients section ends here -->
+
+      <!-- Three cards section starts here -->
+      <section class="py-10 lg:py-[50px] bg-gray-50">
+        <h2 class="text-h2 text-center text-gray-800 mb-8">Explore benefits of usage-based pricing.</h2>
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+            <!-- Card 1 -->
+            <div class="overflow-hidden transition " data-aos="fade-up" data-aos-delay="300">
+                <img src="src/images/cards/card-1.png" alt="Card Image 1" class="w-full h-48 object-cover">
+                <div class="px-8 pt-4 h-60 relative hover:bg-white border border-gray-50 hover:border-gray-300 border-t-0">
+                    <h3 class="text-lg font-semibold text-gray-700">Compare full-stack observability costs: New Relic, Datadog, and Dynatrace</h3>
+                    <a href="#" class="text-teal font-medium  flex items-center absolute left-8 bottom-8 hover:scale-105 transition-transform duration-300">
+                      Read Article
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="overflow-hidden transition" data-aos="fade-up" data-aos-delay="500">
+                <img src="src/images/cards/card-2.png" alt="Card Image 2" class="w-full h-48 object-cover">
+                <div class="px-8 pt-4 h-60 relative hover:bg-white border border-gray-50 hover:border-gray-300 border-t-0">
+                    <h3 class="text-lg font-semibold text-gray-700">New Relic consumption pricing: Get more value for your money</h3>
+                    <a href="#" class="text-teal font-medium  flex items-center absolute left-8 bottom-8 hover:scale-105 transition-transform duration-300">
+                      Read Article
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="overflow-hidden transition " data-aos="fade-up" data-aos-delay="700">
+                <img src="src/images/cards/card-3.png" alt="Card Image 3" class="w-full h-48 object-cover">
+                <div class="px-8 pt-4 h-60 relative border border-gray-50 hover:bg-white hover:border-gray-300 border-t-0">
+                    <h3 class="text-lg font-semibold text-gray-700">New Relic annual pool of funds simplifies observibility pricing</h3>
+                    <a href="#" class="text-teal font-medium  flex items-center absolute left-8 bottom-8 hover:scale-105 transition-transform duration-300">
+                      Read Article
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+      </section>
+      <!-- Three cards section ends here -->
+
+    </main>
+    <!-- Main Content ends here -->
+
+    <!-- Footer section starts here -->
+    <footer class="bg-charcoal text-white">
+      <!-- Footer Top -->
+      <div class="container mx-auto py-10 px-6 border-gray-300">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <!-- First Div -->
+          <div>
+            <h3 class="text-h4 font-semibold mb-4">The New Relic Today</h3>
+            <p class="text-body mb-4">
+              Monitor all your systems and data with the entire New Relic Platform. It's free forever.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="bg-teal text-white px-4 py-2 rounded hover:bg-darkTeal">Start for free</a>
+              <a href="#" class="border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-charcoal">Get demo</a>
+            </div>
+          </div>
+    
+          <!-- Second Div -->
+          <div>
+            <h3 class="text-h4 font-semibold mb-4">COMPANY</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <ul class="space-y-2">
+                <li><a href="#" class="text-body hover:text-blue">About us</a></li>
+                <li><a href="#" class="text-body hover:text-blue">Leadership</a></li>
+                <li><a href="#" class="text-body hover:text-blue">Careers</a></li>
+                <li><a href="#" class="text-body hover:text-blue">Diversity and inclusion</a></li>
+                <li><a href="#" class="text-body hover:text-blue">Social impact</a></li>
+                <li><a href="#" class="text-body hover:text-blue">Newsroom</a></li>
+              </ul>
+              <ul class="space-y-2">
+                <li><a href="#" class="text-body hover:text-blue">Customers</a></li>
+                <li><a href="#" class="text-body hover:text-blue">Partner program</a></li>
+                <li><a href="#" class="text-body hover:text-blue">Investor Relations</a></li>
+                <li><a href="#" class="text-body hover:text-blue">Suppliers Portal</a></li>
+                <li><a href="#" class="text-body hover:text-blue">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+    
+          <!-- Third Div -->
+          <div>
+            <h3 class="text-h4 font-semibold mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <!-- Facebook -->
+              <a href="#" class="hover:text-blue">
+                <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24h11.497v-9.294H9.672V11.09h3.15V8.413c0-3.119 1.907-4.815 4.693-4.815 1.33 0 2.472.099 2.803.143v3.252h-1.923c-1.508 0-1.799.718-1.799 1.768v2.317h3.586l-.467 3.617h-3.12V24h6.116C23.407 24 24 23.407 24 22.675V1.325C24 .593 23.407 0 22.675 0z" />
+                </svg>
+              </a>
+              
+              <!-- Twitter -->
+              <a href="#" class="hover:text-blue">
+                <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.949.555-2.005.959-3.127 1.184-.896-.959-2.173-1.555-3.591-1.555-2.717 0-4.924 2.206-4.924 4.917 0 .39.045.765.127 1.124C7.728 8.087 4.1 6.128 1.671 3.149c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.229-.616v.061c0 2.385 1.693 4.374 3.946 4.828-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.085.631 1.953 2.445 3.376 4.604 3.413-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.192 1.401 4.768 2.218 7.548 2.218 9.142 0 14.307-7.72 14.307-14.411 0-.22 0-.422-.015-.637.981-.703 1.8-1.561 2.46-2.549z" />
+                </svg>
+              </a>
+              
+              <!-- Instagram -->
+              <a href="#" class="hover:text-blue">
+                <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.34 3.608 1.316.975.975 1.254 2.242 1.316 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.34 2.633-1.316 3.608-.975.975-2.242 1.254-3.608 1.316-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.34-3.608-1.316-.975-.975-1.254-2.242-1.316-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.34-2.633 1.316-3.608.975-.975 2.242-1.254 3.608-1.316 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.382.062-2.872.372-3.965 1.465-1.093 1.093-1.403 2.583-1.465 3.965-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.062 1.382.372 2.872 1.465 3.965 1.093 1.093 2.583 1.403 3.965 1.465 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.382-.062 2.872-.372 3.965-1.465 1.093-1.093 1.403-2.583 1.465-3.965.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.062-1.382-.372-2.872-1.465-3.965-1.093-1.093-2.583-1.403-3.965-1.465-1.28-.058-1.688-.072-4.947-.072zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.838 3.838 0 1 1 0-7.676 3.838 3.838 0 0 1 0 7.676zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                </svg>
+              </a>
+              
+              <!-- LinkedIn -->
+              <a href="#" class="hover:text-blue">
+                <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11.5 19h-2v-10h2v10zm-1-11.5c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm11.5 11.5h-2v-5.5c0-1.379-.028-3.147-1.918-3.147-1.919 0-2.082 1.5-2.082 3.045v5.602h-2v-10h1.922v1.369h.028c.267-.504 1.373-1.369 2.82-1.369 3.013 0 3.573 1.986 3.573 4.563v5.437z" />
+                </svg>
+              </a>
+              
+              <!-- YouTube -->
+              <a href="#" class="hover:text-blue">
+                <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186c-.284-1.047-1.114-1.872-2.175-2.168-1.812-.526-9.067-.526-9.067-.526s-7.255 0-9.067.526c-1.061.296-1.891 1.121-2.175 2.168-.526 1.863-.526 5.761-.526 5.761s0 3.898.526 5.761c.284 1.047 1.114 1.872 2.175 2.168 1.812.526 9.067.526 9.067.526s7.255 0 9.067-.526c1.061-.296 1.891-1.121 2.175-2.168.526-1.863.526-5.761.526-5.761s0-3.898-.526-5.761zm-13.498 9.252v-6l5.992 3-5.992 3z" />
+                </svg>
+              </a>
+              
+              <!-- GitHub -->
+              <a href="#" class="hover:text-blue">
+                <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.172c-3.338.724-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.754-1.333-1.754-1.087-.744.083-.729.083-.729 1.205.085 1.84 1.235 1.84 1.235 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.468-2.381 1.235-3.221-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.42 11.42 0 0 1 3.003-.404c1.018.005 2.044.138 3.003.404 2.293-1.552 3.301-1.23 3.301-1.23.653 1.653.24 2.873.118 3.176.77.84 1.234 1.911 1.234 3.221 0 4.61-2.807 5.624-5.48 5.921.429.372.824 1.102.824 2.222v3.293c0 .321.218.694.825.576 4.765-1.588 8.201-6.086 8.201-11.387 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+            </div>            
+          </div>
+        </div>
+      </div>
+    
+      <!-- Footer Bottom -->
+      <div class="bg-charcoal py-4">
+        <div class="container mx-auto flex flex-wrap justify-between items-center px-6">
+          <!-- First Column -->
+          <div class="flex space-x-6">
+            <a href="#" class="text-body hover:text-blue">Terms of service</a>
+            <a href="#" class="text-body hover:text-blue">DMCA Policy</a>
+            <a href="#" class="text-body hover:text-blue">Privcy policy</a>
+            <a href="#" class="text-body hover:text-blue">Cookie policy</a>
+            <a href="#" class="text-body hover:text-blue">UK slavery Act of 2015</a>
+          </div>
+    
+          <!-- Second Column -->
+          <div class="flex space-x-6">
+            <a href="#" class="text-body hover:text-blue">Francias</a>
+            <a href="#" class="text-body hover:text-blue">Deutsch</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer section ends here -->
+
+  </body>
+</html>

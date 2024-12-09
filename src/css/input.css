@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* custom transition */
+#mobile-menu {
+  transition: transform 0.3s ease-in-out;
+}
