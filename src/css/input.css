@@ -1,7 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Rendering the font here to avoid the issue with font render */
+body {
+  font-family: 'Open Sans';
+}
+
+
 /* custom transition */
 #mobile-menu {
   transition: transform 0.3s ease-in-out;
+}
+#search-box {
+  width: 0;
+  overflow: hidden; /* Hide content when width is 0 */
+  transition: width 0.3s ease-in-out; /* Smooth expansion effect */
+  position: absolute;
+  top: 50%; /* Adjust to align vertically */
+  right: 50px; /* Adjust to position near the toggle */
+  transform: translateY(-50%); /* Center vertically */
+}
+#mobile-menu {
+  height: 0px;
+  overflow: hidden; /* Hide content when width is 0 */
+  transition: height 0.3s ease-in-out; /* Smooth expansion effect */
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.td-before::before {
+  content: ''; /* Example content */
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(240, 235, 235);
+  transition: height 0.3s ease-in-out; /* Smooth expansion effect */
+  z-index: -1;
+}
+.td-before:hover::before {
+  height: 30%;
+}
+.sticky-nav {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+  background-color: rgba(255, 255, 255, 0.95); /* Slight transparency */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }

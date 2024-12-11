@@ -11,8 +11,8 @@ module.exports = {
       orange: '#FF8853',
     },
     fontFamily: {
-      sans: ['Open Sans', ...fontFamily.sans],
-    },
+      sans: ['Open Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+    },    
     fontSize: {
       h1: ['40px', { lineHeight: '48px', fontWeight: '400' }],
       h2: ['32px', { lineHeight: '48px', fontWeight: '400' }],
@@ -22,5 +22,7 @@ module.exports = {
       link: ['16px', { lineHeight: '28px', fontWeight: '600' }],
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+  ],
 };
