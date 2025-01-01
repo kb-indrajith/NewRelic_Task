@@ -1,138 +1,129 @@
-// menu open
-function mobileMenu() {
-  const $menuToggle = $('#menu-toggle');
-  const $mobileMenu = $('#mobile-menu');
-  const $hamburgerIcon = $('#hamburger-icon');
-  const $closeIcon = $('#close');
 
-  $menuToggle.on('click', function () {
-    const isOpen = $mobileMenu.css('height') !== '0px' && $mobileMenu.css('height') !== ''; // Check if menu is open
+"use strict";
+
+// Menu open
+function mobileMenu() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.style.height && mobileMenu.style.height !== '0px';
+
     if (!isOpen) {
-      // Open menu
-      $mobileMenu.css('height', '400px'); // Adjust height as needed
-      $menuToggle.attr('data-state', 'open');
-      $hamburgerIcon.addClass('hidden');
-      $closeIcon.removeClass('hidden');
+      mobileMenu.style.height = '400px';
+      menuToggle.setAttribute('data-state', 'open');
+      hamburgerIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
     } else {
-      // Close menu
-      $mobileMenu.css('height', '0');
-      $menuToggle.attr('data-state', 'closed');
-      $hamburgerIcon.removeClass('hidden');
-      $closeIcon.addClass('hidden');
+      mobileMenu.style.height = '0';
+      menuToggle.setAttribute('data-state', 'closed');
+      hamburgerIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
     }
   });
 }
 
-// search box
+// Search box
 function searchBox() {
-  const $searchToggle = $('#search-toggle');
-  const $searchBox = $('#search-box');
-  const $searchIcon = $('#search-icon');
-  const $closeIcon = $('#close-icon');
+  const searchToggle = document.getElementById('search-toggle');
+  const searchBox = document.getElementById('search-box');
+  const searchIcon = document.getElementById('search-icon');
+  const closeIcon = document.getElementById('close-icon');
 
   // Set initial styles for the search box
-  $searchBox.css({
+  Object.assign(searchBox.style, {
     width: '0',
     overflow: 'hidden',
     transition: 'width 0.3s ease-in-out',
-    position: 'absolute', // Position it relative to the parent container
-    top: '50%', // Adjust to align with the toggle button
-    right: '30px', // Adjust as needed
-    transform: 'translateY(-50%)', // Center vertically
-    padding: 0,
-    border: 0,
+    position: 'absolute',
+    top: '50%',
+    right: '30px',
+    transform: 'translateY(-50%)',
+    padding: '0',
+    border: '0',
   });
 
-  // Toggle the width of the search box on click
-  $searchToggle.on('click', function () {
-    if ($searchBox.width() === 0) {
-      // Expand the search box and add padding
-      $searchBox.css({
+  searchToggle.addEventListener('click', () => {
+    if (searchBox.style.width === '0px' || searchBox.style.width === '') {
+      Object.assign(searchBox.style, {
         width: '250px',
         padding: '10px',
-        border: 1,
+        border: '1px solid',
       });
-      $searchIcon.addClass('hidden'); // Hide search icon
-      $closeIcon.removeClass('hidden'); // Show close icon
+      searchIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
     } else {
-      // Collapse the search box and remove padding
-      $searchBox.css({
+      Object.assign(searchBox.style, {
         width: '0',
         padding: '0',
-        border: 0,
+        border: '0',
       });
-      $searchIcon.removeClass('hidden'); // Show search icon
-      $closeIcon.addClass('hidden'); // Hide close icon
+      searchIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
     }
   });
 
-  // Close the search box if clicking outside of it
-  $(document).on('click', function (event) {
-    if (
-      !$searchBox.is(event.target) &&
-      $searchBox.has(event.target).length === 0 &&
-      !$searchToggle.is(event.target) &&
-      $searchToggle.has(event.target).length === 0
-    ) {
-      $searchBox.css({
+  document.addEventListener('click', (event) => {
+    if (!searchBox.contains(event.target) && !searchToggle.contains(event.target)) {
+      Object.assign(searchBox.style, {
         width: '0',
         padding: '0',
-        border: 0,
+        border: '0',
       });
-      $searchIcon.removeClass('hidden'); // Show search icon
-      $closeIcon.addClass('hidden'); // Hide close icon
+      searchIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
     }
   });
 }
 
-// Function to add the appropriate class to buttons based on viewport size
+// Add responsive class to buttons
 function addResponsiveClassToButtons() {
-  // Get the current viewport width
-  const width = $(window).width();
+  const width = window.innerWidth;
+  const buttons = document.querySelectorAll('button');
 
-  // Select all buttons on the page
-  const $buttons = $('button');
-
-  // Remove the class is already there
-  $buttons.removeClass('tablet mobile');
-
-  // Add 'tablet' or 'mobile' class based on width
-  if (width >= 768 && width < 1024) {
-    $buttons.addClass('tablet');
-  } else if (width < 768) {
-    $buttons.addClass('mobile');
-  }
+  buttons.forEach((button) => {
+    button.classList.remove('tablet', 'mobile');
+    if (width >= 768 && width < 1024) {
+      button.classList.add('tablet');
+    } else if (width < 768) {
+      button.classList.add('mobile');
+    }
+  });
 }
- function stickyNav() {
-  const $header = $('header');
+
+// Sticky navigation
+function stickyNav() {
+  const header = document.querySelector('header');
   const stickyClass = 'sticky-nav';
 
-  // Add scroll event listener
-  $(window).on('scroll', function () {
-    if ($(window).scrollTop() > 50) { // Add the class if scrolled more than 50px
-      $header.addClass(stickyClass);
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add(stickyClass);
     } else {
-      $header.removeClass(stickyClass);
+      header.classList.remove(stickyClass);
     }
   });
- }
-// Run the function on page load
-$(document).ready(() => {
-  mobileMenu(); 
+}
+
+// Initialize functions on page load
+document.addEventListener('DOMContentLoaded', () => {
+  mobileMenu();
   addResponsiveClassToButtons();
   searchBox();
   stickyNav();
+
+  // Initialize AOS library
   AOS.init({
-    once: false, // Animation happens on every scroll
-    duration: 1200, // Duration of the animation in ms
-    offset: 70,    // Trigger animation 200px from the element
+    once: false,
+    duration: 1200,
+    offset: 70,
   });
 
-  // Refresh AOS if needed for dynamically added content
-  $(window).on('resize', function() {
+  // Refresh AOS on resize
+  window.addEventListener('resize', () => {
     AOS.refresh();
+    addResponsiveClassToButtons();
   });
-  // Update the classes when the window is resized
-  $(window).resize(addResponsiveClassToButtons);
 });
-
